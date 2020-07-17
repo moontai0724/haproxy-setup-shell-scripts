@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  haproxy:
+    image: haproxy:latest
+    container_name: haproxy
+    ports:
+      - 80:80
+      - 25565:25565
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /srv/docker/haproxy:/usr/local/etc/haproxy
+    restart: always
+    stdin_open: true
+    tty: true
